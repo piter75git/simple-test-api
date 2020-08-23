@@ -5,6 +5,7 @@ This is a simple API based on Laravel 7.25. It has been made only for testing.
 ### Local installation
 Required the dev environment for Laravel 7.x (https://laravel.com/docs/7.x#server-requirements)
 
+### Installation steps
 - Create MySQL database
 - Download and unzip the repository file
 - Open console and go to the project directory
@@ -14,7 +15,7 @@ Required the dev environment for Laravel 7.x (https://laravel.com/docs/7.x#serve
 - Run `php artisan key:generate`
 - Run `php artisan storage:link`
 - Run `php artisan migrate`
-- Run `php artisan db:seed` to run seeders (it shall take about 30 seconds)
+- Run `php artisan db:seed` to run seeds (it shall take about 30 seconds)
 - Run `php artisan serve`
 
 ### Seeds
@@ -26,11 +27,11 @@ There are 5 channels and 100 programmes in seeds. Each contains icons and thumbn
 - Run `php artisan test`
 
 ### Available endpoints
-/ - info
-/channels - Get the list of channels
-/channels/{channel_uuid}/{date}/{timezone} - Get the channel programmes
-/channels/{channel_uuid}/date/{date}/tz/{timezone} - Get the channel programmes (restful pattern)
-/channels/{channel-uuid}/programmes/{programme-uuid} - Get the programme details
+- `/` - info
+- `/channels` - Get the list of channels
+- `/channels/{channel_uuid}/{date}/{timezone}` - Get the channel programmes
+- `/channels/{channel_uuid}/date/{date}/tz/{timezone}` - Get the channel programmes (restful pattern)
+- `/channels/{channel-uuid}/programmes/{programme-uuid}` - Get the programme details
 
 ### Timezones format
 Here we use timezones in URLs. Use timezones in the format of PHP DateTimeZone (https://www.php.net/manual/en/datetimezone.listidentifiers.php) but replace all slashes with dashes.
