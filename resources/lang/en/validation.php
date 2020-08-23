@@ -130,6 +130,9 @@ return [
     */
 
     'custom' => [
+        'timezone' => [
+            'invalid' => 'The timezone has to be in the format {continent-city} supported by PHP DateTimeZone class.',
+        ],
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
