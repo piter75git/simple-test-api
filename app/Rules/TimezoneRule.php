@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace App\Rules;
 
-use App\Models\Timezone;
 use Illuminate\Contracts\Validation\Rule;
 
 class TimezoneRule implements Rule
@@ -18,7 +17,7 @@ class TimezoneRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        return Timezone::isValid($value);
+        return app('timezone')->isValid($value);
     }
 
     /**

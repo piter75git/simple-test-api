@@ -67,7 +67,7 @@ class Programme extends Model
     public function getStartAttribute($value): ?DateTime
     {
         return $value
-            ? Timezone::createDateTime($value)
+            ? app('timezone')->createDateTime($value)
             : $value;
     }
 
@@ -80,7 +80,7 @@ class Programme extends Model
     public function getEndAttribute($value): ?DateTime
     {
         return $value
-            ? Timezone::createDateTime($value)
+            ? app('timezone')->createDateTime($value)
             : $value;
     }
 

@@ -14,7 +14,7 @@ class Timezone
      *
      * @var DateTimeZone|null
      */
-    private static $datetimezone;
+    private $datetimezone;
 
     /**
      * Set the PHP DateTimeZone object
@@ -23,10 +23,10 @@ class Timezone
      * @param string  $timezone
      * @return void
      */
-    public static function setDateTimeZone(string $timezone): void
+    public function setDateTimeZone(string $timezone): void
     {
-        self::$datetimezone = new DateTimeZone(
-            self::formatToPhpSyntax($timezone)
+        $this->datetimezone = new DateTimeZone(
+            $this->formatToPhpSyntax($timezone)
         );
     }
 
@@ -35,13 +35,13 @@ class Timezone
      *
      * @return \DateTimeZone
      */
-    public static function getDateTimeZone(): DateTimeZone
+    public function getDateTimeZone(): DateTimeZone
     {
-        if (! self::$datetimezone) {
-            self::$datetimezone = new DateTimeZone(config('app.timezone'));
+        if (! $this->datetimezone) {
+            $this->datetimezone = new DateTimeZone(config('app.timezone'));
         }
 
-        return self::$datetimezone;
+        return $this->datetimezone;
     }
 
     /**
@@ -51,9 +51,9 @@ class Timezone
      * @param string  $value  Date format.
      * @return \DateTime
      */
-    public static function createDateTime(string $value): DateTime
+    public function createDateTime(string $value): DateTime
     {
-        return (new DateTime($value))->setTimezone(self::getDateTimeZone());
+        return (new DateTime($value))->setTimezone($this->getDateTimeZone());
     }
 
     /**
@@ -62,10 +62,10 @@ class Timezone
      * @param string  $timezone
      * @return bool
      */
-    public static function isValid(string $timezone): bool
+    public function isValid(string $timezone): bool
     {
         return in_array(
-            self::formatToPhpSyntax($timezone),
+            $this->formatToPhpSyntax($timezone),
             DateTimeZone::listIdentifiers()
         );
     }
@@ -76,7 +76,7 @@ class Timezone
      * @param string  $timezone
      * @return string
      */
-    private static function formatToPhpSyntax(string $timezone): string
+    private function formatToPhpSyntax(string $timezone): string
     {
         return str_replace('-', '/', $timezone);
     }
@@ -87,7 +87,7 @@ class Timezone
      * @param string  $timezone
      * @return string
      */
-    private static function formatToUrlSyntax(string $timezone): string
+    private function formatToUrlSyntax(string $timezone): string
     {
         return str_replace('/', '-', $timezone);
     }

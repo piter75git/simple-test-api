@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace App\Http\Controllers\Channel;
 
 use App\Models\Channel;
-use App\Models\Timezone;
 use App\Models\Programme;
 use App\Rules\TimezoneRule;
 use App\Http\Requests\Request;
@@ -32,9 +31,9 @@ class TimetableController extends Controller
             ->where('uuid', $channel_uuid)
             ->firstOrFail();
 
-        Timezone::setDateTimeZone($timezone);
+        app('timezone')->setDateTimeZone($timezone);
 
-        $datetime = Timezone::createDateTime($date);
+        $datetime = app('timezone')->createDateTime($date);
 
         $programmes = Programme::select(['id', 'uuid', 'name', 'start', 'end', 'duration'])
             ->where('channel_id', $channel->id)
