@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Timezone;
+use App\Services\Timezone;
 use Illuminate\Support\ServiceProvider;
 
 class TimezoneServiceProvider extends ServiceProvider
