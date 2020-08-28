@@ -3,15 +3,15 @@
 This is a simple API based on Laravel 7.25. It has been made only for testing.
 
 ### Local installation
-Required the dev environment for Laravel 7.x (https://laravel.com/docs/7.x#server-requirements)
+Required the dev environment for Laravel 7.x (https://laravel.com/docs/7.x#server-requirements).
+Also Composer is required (https://getcomposer.org/download/).
 
 ### Installation steps
-- Create MySQL database
+- Create MySQL database for the project
 - Download and unzip the repository file
 - Open console and go to the project directory
-- Download composer (https://getcomposer.org/download/)
-- Run `composer install` or ```php composer.phar install```
-- Rename `.env.example` file to `.env` and fill the database variables
+- Run `composer install` (or ```php composer.phar install```)
+- Rename `.env.example` file to `.env` and fill with the database variables
 - Run `php artisan key:generate`
 - Run `php artisan storage:link`
 - Run `php artisan migrate`
